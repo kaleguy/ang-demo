@@ -1,0 +1,47 @@
+<section class="mainbar">
+    <section class="matter">
+        <div class="mainbox">
+            <div ui-calendar="uiConfig.calendar"
+                 ng-model="eventSources"
+                 calendar="mainCalendar">
+            </div>
+        </div>
+        <div class="sidebox">
+            <div class="title3" ng-click="vm.isCollapsedCal = !vm.isCollapsedCal">
+                <i ng-class="!vm.isCollapsedCal ? 'fa fa-minus-square-o': 'fa fa-plus-square-o'"></i>
+                Calendars
+            </div>
+            <div collapse="vm.isCollapsedCal">
+                <div ng-repeat="(key, value) in vm.accounts">
+                    <div  class="item1">
+                        <i
+                            ng-click="vm.filterCalendars(value.id, $event)"
+                            ng-class="vm.calendarFilters[value.id] ? 'fa fa-square-o': 'fa fa-check-square-o'"></i>
+
+                        <sr-color-picker onselect="vm.setEventsColor"
+                                         item="value"
+                                         color="value.backgroundColor"></sr-color-picker>
+                        {{value.email_address}}
+                    </div>
+                </div>
+            </div>
+            <div class="title3" ng-click="vm.isCollapsedOwn = !vm.isCollapsedOwn">
+                <i ng-class="!vm.isCollapsedOwn ? 'fa fa-minus-square-o': 'fa fa-plus-square-o'"></i>
+                Event Owners
+            </div>
+            <div collapse="vm.isCollapsedOwn">
+                <div ng-repeat="(key, value) in vm.owners">
+                    <div ng-click="vm.filterOwners(key)"
+                         class="item1"
+                         ng-class="{'item1_on':hovering}"
+                         ng-mouseleave="hovering=false"
+                         ng-mouseenter="hovering=true">
+                        <i ng-class="vm.ownerFilters[key] ? 'fa fa-square-o': 'fa fa-check-square-o'"></i>
+                        {{value.name}}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+</section>
