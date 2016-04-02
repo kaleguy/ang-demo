@@ -21,8 +21,6 @@
         /**
          * ========== FullCalendar Setup ==============
          */
-
-        /* config object */
         let customButtons = {};
         if (editable) {
             customButtons = {
@@ -72,7 +70,7 @@
         $scope.eventSources = events;
 
         /**
-         * eventClick
+         * eventClick: show bootstrap popover with event info
          * @param calEvent
          * @param jsEvent
          */
@@ -87,23 +85,6 @@
             // using ng $compile
             let template = _.template($('#cal_pop').html());
 
-            let title = calEvent.title;
-            let description = calEvent.description;
-            if (!description) {
-                description = '';
-            }
-
-            // need this if text is too long
-            item.ellipsis_class = '';
-            let description_text = removeTags(description);
-            if (description_text.length > 200) {
-                item.ellipsis_class = 'ellipsis';
-            }
-
-            vm.yes_class = "fa fa-check";
-            vm.maybe_class = "fa fa-question";
-            vm.no_class = "fa fa-times";
-
             function _showPopover(el) {
 
                 el.popover('show');
@@ -112,8 +93,7 @@
                 el.attr('tabindex', 0);
                 el.attr('role', 'button');
 
-                // Once content is drawn, we can $compile it to get the
-                // ng commands to work
+                // Once content is drawn, we can $compile it to get the ng commands to work
                 let contentEl = $(popid + ' .popover-content');
                 let contentElChild = $(popid + ' .tool-content');
                 let ng_template = contentElChild.html();
@@ -122,19 +102,10 @@
                 contentElChild.remove();
                 contentEl.append(ng_el);
                 compiled($scope);
-                $timeout(() => {
-                    $compile($('#pageslider'));
-                }, 500);
             }
 
-            // let time_description = 'TD';
-
-            item.participants || (item.participants = []);
-
-            //    let rsvp_status_descr = '';
-
             el.popover({
-                title,
+                title: item.title,
                 placement: 'right',
                 container: 'body',
                 html: true,

@@ -144,12 +144,23 @@
                     console.log("No matching account for:", e);
                     return;
                 }
+
+                var shortDescription = e.description;
+                // need this if text is too long
+                e.ellipsis_class = '';
+                shortDescription = removeTags(shortDescription);
+                if (shortDescription.length > 200) {
+                    e.ellipsis_class = 'ellipsis';
+                }
                 _.defaults(e,{
+                    title:'',
                     read_only: true,
                     description: '',
+                    short_description: shortDescription,
                     canceled: false,
                     rsvp_status_descr: false,
-                    location: ''
+                    location: '',
+                    participants:[]
                 });
 
                 e.backgroundColor = account.backgroundColor;

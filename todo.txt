@@ -1,0 +1,8 @@
+/*
+  "overrides": {
+    "bootstrap": {
+      "main": "dist/css/bootstrap.css",
+      "dist": "dist/js/bootstrap.js"
+    }
+  }
+  */

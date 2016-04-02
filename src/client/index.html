@@ -113,7 +113,7 @@
                     <%= start.local().format('ddd MM/DD/YYYY h:mm A') %>
                 </div>
             </div>
-            <div class="description <%= ellipsis_class %>"><div><%= description %></div></div>
+            <div class="description <%= ellipsis_class %>"><div><%= short_description %></div></div>
             <% if (participants.length){ %>
             <div class="participants">
                 <span class="title">Who: </span><%= participants.join(', ') %>
