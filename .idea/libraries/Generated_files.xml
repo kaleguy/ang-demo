@@ -2,16 +2,16 @@
   <library name="Generated files" type="javaScript">
     <properties>
       <sourceFilesUrls>
-        <item url="file://$PROJECT_DIR$/src/client/app/util-compiled.js" />
         <item url="file://$PROJECT_DIR$/.tmp/templates-compiled.js" />
+        <item url="file://$PROJECT_DIR$/src/client/app/util-compiled.js" />
         <item url="file://$PROJECT_DIR$/src/client/app/core/calendarservice-compiled.js" />
         <item url="file://$PROJECT_DIR$/.tmp/templates-compiled.js" />
         <item url="file://$PROJECT_DIR$/src/client/app/calendar/calendar.controller-compiled.js" />
       </sourceFilesUrls>
     </properties>
     <CLASSES>
-      <root url="file://$PROJECT_DIR$/src/client/app/util-compiled.js" />
       <root url="file://$PROJECT_DIR$/.tmp/templates-compiled.js" />
+      <root url="file://$PROJECT_DIR$/src/client/app/util-compiled.js" />
       <root url="file://$PROJECT_DIR$/src/client/app/core/calendarservice-compiled.js" />
       <root url="file://$PROJECT_DIR$/.tmp/templates-compiled.js" />
       <root url="file://$PROJECT_DIR$/src/client/app/calendar/calendar.controller-compiled.js" />
