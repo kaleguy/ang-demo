@@ -1,13 +1,9 @@
 (function () {
     'use strict';
 
-    angular
-        .module('app.calendar')
-        .controller('CalendarController', CalendarController);
+    angular.module('app.calendar').controller('CalendarController', CalendarController);
 
-
-    CalendarController.$inject =
-        ['$scope', '$timeout', '$compile', '$document', 'logger', 'uiCalendarConfig', 'CalendarService'];
+    CalendarController.$inject = ['$scope', '$timeout', '$compile', '$document', 'logger', 'uiCalendarConfig', 'CalendarService'];
     /* @ngInject */
     function CalendarController($scope, $timeout, $compile, $document, logger, uiCalendarConfig, CalendarService) {
 
@@ -16,10 +12,10 @@
         var editable = true;
         var events = [];
 
-        var data  = CalendarService.getCalendarData();
+        var data = CalendarService.getCalendarData();
         //vm = _.extend(vm, data);
 
-        const refresh = (force) => events.push(data.dummyEvents);
+        const refresh = force => events.push(data.dummyEvents);
         refresh();
 
         /**
@@ -32,13 +28,15 @@
             customButtons = {
                 addButton: {
                     text: 'Add Event',
-                    click:  () => { editEvent(); $scope.$apply(); }
+                    click: () => {
+                        editEvent();$scope.$apply();
+                    }
                 }
-            }
+            };
         }
         customButtons.refreshButton = {
             text: 'Refresh',
-            click:  () => {
+            click: () => {
                 $('.splash_small').show();
                 refresh(true);
             },
@@ -58,7 +56,7 @@
                 timezone: "local",
                 buttonIcons: buttonIcons,
                 customButtons: customButtons,
-                drop:  (date, jsEvent) => {},
+                drop: (date, jsEvent) => {},
                 header: {
                     left: 'prev,next today addButton refreshButton',
                     center: 'title',
@@ -78,9 +76,9 @@
          * @param calEvent
          * @param jsEvent
          */
-        function eventClick (calEvent, jsEvent) {
+        function eventClick(calEvent, jsEvent) {
 
-           // let eventClicked = true;
+            // let eventClicked = true;
             let el = $(jsEvent.currentTarget);
             let item = calEvent;
 
@@ -91,7 +89,9 @@
 
             let title = calEvent.title;
             let description = calEvent.description;
-            if (!description) { description = '' }
+            if (!description) {
+                description = '';
+            }
 
             // need this if text is too long
             item.ellipsis_class = '';
@@ -122,10 +122,9 @@
                 contentElChild.remove();
                 contentEl.append(ng_el);
                 compiled($scope);
-                $timeout(
-                    () => {$compile($('#pageslider'))},
-                    500);
-
+                $timeout(() => {
+                    $compile($('#pageslider'));
+                }, 500);
             }
 
             // let time_description = 'TD';
@@ -143,21 +142,18 @@
             });
 
             _showPopover(el);
-
         };
 
         /* Navigate to the Agenda view of a particular day on clicking the day cell of the Month view */
-        function dayClick (date) { // view, calendar
+        function dayClick(date) {
+            // view, calendar
             let c = uiCalendarConfig.calendars.mainCalendar;
             c.fullCalendar('changeView', 'agendaDay');
             c.fullCalendar('gotoDate', date);
             removePop();
         };
 
-        function viewRender(){
-
-        }
-
+        function viewRender() {}
 
         activate();
         function activate() {
@@ -165,3 +161,5 @@
         }
     }
 })();
+
+//# sourceMappingURL=calendar.controller-compiled.js.map

@@ -12,9 +12,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
     <base href="/">
 
+    <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.css" />
+
+
     <!-- build:css styles/lib.css -->
     <!-- bower:css -->
-    <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.css" />
     <link rel="stylesheet" href="/bower_components/toastr/toastr.css" />
     <link rel="stylesheet" href="/bower_components/fullcalendar/dist/fullcalendar.css" />
     <!-- endbower -->
@@ -46,6 +48,7 @@
     <script src="/bower_components/jquery/dist/jquery.js"></script>
     <script src="/bower_components/angular/angular.js"></script>
     <script src="/bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="/bower_components/bootstrap/dist/js/bootstrap.js"></script>
     <script src="/bower_components/extras.angular.plus/ngplus-overlay.js"></script>
     <script src="/bower_components/moment/moment.js"></script>
     <script src="/bower_components/angular-ui-router/release/angular-ui-router.js"></script>
@@ -53,6 +56,7 @@
     <script src="/bower_components/angular-animate/angular-animate.js"></script>
     <script src="/bower_components/fullcalendar/dist/fullcalendar.js"></script>
     <script src="/bower_components/angular-ui-calendar/src/calendar.js"></script>
+    <script src="/bower_components/underscore/underscore.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
@@ -74,8 +78,10 @@
     <script src="/src/client/app/blocks/exception/exception.js"></script>
     <script src="/src/client/app/blocks/logger/logger.js"></script>
     <script src="/src/client/app/blocks/router/router-helper.provider.js"></script>
+    <script src="/src/client/app/calendar/calendar.controller-compiled.js"></script>
     <script src="/src/client/app/calendar/calendar.controller.js"></script>
     <script src="/src/client/app/calendar/calendar.route.js"></script>
+    <script src="/src/client/app/core/calendarservice-compiled.js"></script>
     <script src="/src/client/app/core/calendarservice.js"></script>
     <script src="/src/client/app/core/config.js"></script>
     <script src="/src/client/app/core/constants.js"></script>
@@ -87,6 +93,8 @@
     <script src="/src/client/app/layout/ht-top-nav.directive.js"></script>
     <script src="/src/client/app/layout/shell.controller.js"></script>
     <script src="/src/client/app/layout/sidebar.controller.js"></script>
+    <script src="/src/client/app/util-compiled.js"></script>
+    <script src="/src/client/app/util.js"></script>
     <script src="/src/client/app/widgets/ht-img-person.directive.js"></script>
     <script src="/src/client/app/widgets/ht-widget-header.directive.js"></script>
     <!-- endinject -->
@@ -94,5 +102,63 @@
     <!-- inject:templates:js -->
     <!-- endinject -->
     <!-- endbuild -->
+
+    <script id="cal_pop" type="text/template">
+        <div class="tool-content">
+            <div class="location"><%= location %></div>
+            <div class="name"><%= owner.name %></div>
+            <div class="event_date">
+                <i class="fa fa-calendar"></i>
+                <div class="time_label">
+                    <%= start.local().format('ddd MM/DD/YYYY h:mm A') %>
+                </div>
+            </div>
+            <div class="description <%= ellipsis_class %>"><div><%= description %></div></div>
+            <% if (participants.length){ %>
+            <div class="participants">
+                <span class="title">Who: </span><%= participants.join(', ') %>
+            </div>
+            <% } %>
+            <% if (! read_only && owned && editable) { %>
+            <div class="edit">
+                <button class="btn btn-default btn-xs" ng-click="editEvent(this,'<%= id %>')">
+                    <table>
+                        <tr>
+                            <td style="padding-top:3px;"><i class="fa fa-pencil-square-o"></i></td>
+                            <td>Edit</td>
+                        </tr>
+                    </table>
+                </button>
+                <button style="display:none" class="btn btn-default btn-xs">
+                    <table width="60px">
+                        <tr>
+                            <td style="padding-top:1px;"><i class="fa fa-times"></i></td>
+                            <td>Delete</td>
+                        </tr>
+                    </table>
+                </button>
+            </div>
+            <% } else { %>
+            <% if ((! canceled) && rsvp_status_descr && editable) { %>
+            <div class="approve" style="height:40px;">
+                <button class="btn btn-default btn-xs" tooltip="Accept" ng-click="yes(this,'<%= id %>')">
+                    <i class="{{yes_class}}"></i>
+                </button>
+                <button class="btn btn-default btn-xs"  tooltip="Maybe" ng-click="maybe(this,'<%= id %>')">
+                    <i class="{{maybe_class}}"></i>
+                </button>
+                <button class="btn btn-default btn-xs"  tooltip="Decline" ng-click="no(this,'<%= id %>')">
+                    <i class="{{no_class}}"></i>
+                </button>
+            </div>
+            <% } %>
+            <% } %>
+            <% if ((! canceled) && rsvp_status_descr && editable) { %>
+            <div>{{event_data.rsvp_status_descr}}</div>
+            <% } %>
+        </div>
+    </script>
+
+
 </body>
 </html>
