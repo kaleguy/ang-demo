@@ -3,14 +3,18 @@
 
     angular.module('app.calendar').controller('CalendarController', CalendarController);
 
-    CalendarController.$inject = ['$scope', '$timeout', '$compile', '$document', 'logger', 'uiCalendarConfig', 'CalendarService'];
+    CalendarController.$inject = ['$scope', '$timeout', '$compile', '$document', 'logger', 'uiCalendarConfig', 'dataservice'];
     /* @ngInject */
-    function CalendarController($scope, $timeout, $compile, $document, logger, uiCalendarConfig, CalendarService) {
+    function CalendarController($scope, $timeout, $compile, $document, logger, uiCalendarConfig, dataservice) {
 
         var vm = this;
         vm.title = 'Calendar';
         var editable = true;
         var events = [];
+
+        // display of filter lists
+        vm.isCollapsedCal = true;
+        vm.isCollapsedOwn = true;
 
         //  next two functions are for hiding popover.
         //  (trigger:focus doesn't work with container: body)
@@ -35,10 +39,11 @@
             }
         });
 
-        var data = CalendarService.getCalendarData();
-
-        const refresh = force => events.push(data.dummyEvents);
-        refresh();
+        // load the events into the calendar
+        dataservice.getEvents().then(function (data) {
+            vm = _.extend(vm, data);
+            events.push(data.events);
+        });
 
         /**
          * ========== FullCalendar Setup ==============
@@ -123,6 +128,68 @@
         }
 
         function viewRender() {}
+
+        /**
+         * ============ Color Picker and Filters =====================
+         */
+        vm.calendarFilters = {};
+        vm.ownerFilters = {};
+
+        const unfilterAll = function () {
+            setAll(vm.calendarFilters, false);
+            setAll(vm.ownerFilters, false);
+            //_.each(events, (e) => e.className = _.without(e.className, 'hide');
+        };
+
+        /**
+         * filterCalendars - filter calendars by account. This function also handles
+         * the click on the color square, and passes that click to the color picker.
+         * @param key
+         */
+        vm.filterCalendars = function (key) {
+            vm.calendarFilters[key] = !vm.calendarFilters[key];
+            //console.log(key, vm.calendarFilters[key]);
+            toggleHide('calendar', key, vm.calendarFilters[key]);
+        };
+        vm.filterOwners = function (key) {
+            vm.ownerFilters[key] = !vm.ownerFilters[key];
+            toggleHide('owner', key, vm.ownerFilters[key]);
+        };
+
+        vm.setEventsColor = function (color, account) {
+
+            let cp_events = angular.copy(vm.events);
+            let id = account.id;
+            cp_events.forEach(function (e) {
+                if (e.calendar === id) {
+                    e.backgroundColor = color;
+                }
+            });
+            events.length = 0;
+            events.push(cp_events);
+            $scope.$apply(); // required bc angular fullcalendar does not respond to change in event backgroundColor
+        };
+
+        /**
+         * toggleHide: hide/show events by type (target)
+         * @param target: 'calendar' or 'owner'
+         * @param key: id of target
+         * @param hide {boolean}
+         */
+        const toggleHide = function (target, key, hide) {
+            let cp_events = angular.copy(vm.events);
+            cp_events.forEach(function (e) {
+                if (e[target] === key) {
+                    if (hide) {
+                        e.className.push('hide');
+                    } else {
+                        e.className = _.without(e.className, 'hide');
+                    }
+                }
+            });
+            events.length = 0;
+            events.push(cp_events);
+        };
 
         activate();
         function activate() {

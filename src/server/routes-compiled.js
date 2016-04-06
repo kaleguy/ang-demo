@@ -22,7 +22,7 @@ function getEvents(req, res, next) {
 
 function getPerson(req, res, next) {
     var id = +req.params.id;
-    var person = data.people.filter(function(p) {
+    var person = data.people.filter(function (p) {
         return p.id === id;
     })[0];
 
@@ -32,3 +32,5 @@ function getPerson(req, res, next) {
         four0four.send404(req, res, 'person ' + id + ' not found');
     }
 }
+
+//# sourceMappingURL=routes-compiled.js.map

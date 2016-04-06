@@ -2,25 +2,27 @@
 
     'use strict';
 
-    angular
-        .module('app.core')
-        .factory('calendarservice', calendarservice);
+    angular.module('app.core').factory('dataservice', dataservice);
 
-    calendarservice.$inject = ['$http', '$q', 'exception', 'logger'];
+    dataservice.$inject = ['$http', '$q', 'exception', 'logger'];
 
     /* @ngInject */
-    function calendarservice($http, $q, exception, logger) {
+    function dataservice($http, $q, exception, logger) {
 
         var service = {
+            getPeople: getPeople,
             getEvents: getEvents,
+            getMessageCount: getMessageCount
         };
 
         return service;
 
-        function getEvents() {
-            return $http.get('/api/people')
-                .then(success)
-                .catch(fail);
+        function getMessageCount() {
+            return $q.when(72);
+        }
+
+        function getPeople() {
+            return $http.get('/api/people').then(success).catch(fail);
 
             function success(response) {
                 return response.data;
@@ -30,31 +32,24 @@
                 return exception.catcher('XHR Failed for getPeople')(e);
             }
         }
+        function getEvents() {
+            return $http.get('/api/events').then(success).catch(fail);
 
-    }
+            function success(response) {
+                return normalizeEvents(response.data);
+            }
 
-})();
+            function fail(e) {
+                return exception.catcher('XHR Failed for getPeople')(e);
+            }
+        }
+        function normalizeEvents(data) {
 
-/*
-(function () {
-    'use strict';
+            var events = data.events;
+            _.each(events, function (e) {
 
-    angular
-        .module('app.core')
-        .service('CalendarService', Calendar);
-
-    // Calendar.$inject = ['dependency'];
-
-    /!* @ngInject *!/
-    function Calendar() {
-        this.getCalendarData = getCalendarData;
-
-        function getCalendarData() {
-
-            // put the account background color on the event
-            _.each(data.dummyEvents, function (e) {
                 var account = _.find(data.accounts, function (a) {
-                    return a.id === e.calendar
+                    return a.id === e.calendar;
                 });
                 if (!account) {
                     console.log("No matching account for:", e);
@@ -68,30 +63,24 @@
                 if (shortDescription.length > 200) {
                     e.ellipsis_class = 'ellipsis';
                 }
-                _.defaults(e,{
-                    title:'',
+                _.defaults(e, {
+                    title: '',
                     read_only: true,
                     description: '',
                     short_description: shortDescription,
                     canceled: false,
                     rsvp_status_descr: false,
                     location: '',
-                    participants:[],
-                    owner:''
+                    participants: [],
+                    owner: ''
                 });
 
                 e.backgroundColor = account.backgroundColor;
                 e.className = [];
-
-
             });
-
-
             return data;
-
         }
     }
-
 })();
 
-*/
+//# sourceMappingURL=dataservice-compiled.js.map

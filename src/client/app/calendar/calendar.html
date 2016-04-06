@@ -11,16 +11,16 @@
                 <i ng-class="!vm.isCollapsedCal ? 'fa fa-minus-square-o': 'fa fa-plus-square-o'"></i>
                 Calendars
             </div>
-            <div collapse="vm.isCollapsedCal">
+            <div ng-collapse="vm.isCollapsedCal">
                 <div ng-repeat="(key, value) in vm.accounts">
                     <div  class="item1">
                         <i
                             ng-click="vm.filterCalendars(value.id, $event)"
                             ng-class="vm.calendarFilters[value.id] ? 'fa fa-square-o': 'fa fa-check-square-o'"></i>
 
-                        <sr-color-picker onselect="vm.setEventsColor"
+                        <color-selectbox onselect="vm.setEventsColor"
                                          item="value"
-                                         color="value.backgroundColor"></sr-color-picker>
+                                         color="value.backgroundColor"></color-selectbox>
                         {{value.email_address}}
                     </div>
                 </div>
@@ -29,7 +29,7 @@
                 <i ng-class="!vm.isCollapsedOwn ? 'fa fa-minus-square-o': 'fa fa-plus-square-o'"></i>
                 Event Owners
             </div>
-            <div collapse="vm.isCollapsedOwn">
+            <div ng-collapse="vm.isCollapsedOwn">
                 <div ng-repeat="(key, value) in vm.owners">
                     <div ng-click="vm.filterOwners(key)"
                          class="item1"
