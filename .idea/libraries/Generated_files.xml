@@ -35,10 +35,12 @@
         <item url="file://$PROJECT_DIR$/bower_components/lodash/perf/perf-compiled.js" />
         <item url="file://$PROJECT_DIR$/bower_components/lodash/dist/lodash.fp.min-compiled.js" />
         <item url="file://$PROJECT_DIR$/bower_components/lodash/dist/lodash.core.min-compiled.js" />
+        <item url="file://$PROJECT_DIR$/dist/gulp.config-compiled.js" />
         <item url="file://$PROJECT_DIR$/bower_components/lodash/test/asset/test-ui-compiled.js" />
+        <item url="file://$PROJECT_DIR$/dist/data-compiled.js" />
         <item url="file://$PROJECT_DIR$/bower_components/lodash/test/remove-compiled.js" />
-        <item url="file://$PROJECT_DIR$/bower_components/lodash/dist/lodash.core-compiled.js" />
         <item url="file://$PROJECT_DIR$/bower_components/angular/index-compiled.js" />
+        <item url="file://$PROJECT_DIR$/bower_components/lodash/dist/lodash.core-compiled.js" />
         <item url="file://$PROJECT_DIR$/bower_components/lodash/dist/lodash-compiled.js" />
         <item url="file://$PROJECT_DIR$/bower_components/lodash/vendor/backbone/test/setup/dom-setup-compiled.js" />
         <item url="file://$PROJECT_DIR$/bower_components/angular-animate/index-compiled.js" />
@@ -63,7 +65,6 @@
         <item url="file://$PROJECT_DIR$/bower_components/lodash/vendor/underscore/test/chaining-compiled.js" />
         <item url="file://$PROJECT_DIR$/src/server/routes-compiled.js" />
         <item url="file://$PROJECT_DIR$/bower_components/lodash/vendor/backbone/backbone-compiled.js" />
-        <item url="file://$PROJECT_DIR$/src/server/data-compiled.js" />
         <item url="file://$PROJECT_DIR$/bower_components/lodash/vendor/underscore/test/utility-compiled.js" />
         <item url="file://$PROJECT_DIR$/bower_components/lodash/vendor/backbone/test/collection-compiled.js" />
       </sourceFilesUrls>
@@ -87,6 +88,8 @@
       <root url="file://$PROJECT_DIR$/src/client/app/core/core.module-compiled.js" />
       <root url="file://$PROJECT_DIR$/src/client/app/core/calendarservice-compiled.js" />
       <root url="file://$PROJECT_DIR$/.tmp/templates-compiled.js" />
+      <root url="file://$PROJECT_DIR$/src/server/data-compiled.js" />
+      <root url="file://$PROJECT_DIR$/src/server/data-compiled.js" />
       <root url="file://$PROJECT_DIR$/bower_components/lodash/vendor/underscore/test/cross-document-compiled.js" />
       <root url="file://$PROJECT_DIR$/bower_components/lodash/vendor/underscore/test/objects-compiled.js" />
       <root url="file://$PROJECT_DIR$/bower_components/lodash/vendor/underscore/test/collections-compiled.js" />
@@ -120,10 +123,12 @@
       <root url="file://$PROJECT_DIR$/bower_components/lodash/perf/perf-compiled.js" />
       <root url="file://$PROJECT_DIR$/bower_components/lodash/dist/lodash.fp.min-compiled.js" />
       <root url="file://$PROJECT_DIR$/bower_components/lodash/dist/lodash.core.min-compiled.js" />
+      <root url="file://$PROJECT_DIR$/dist/gulp.config-compiled.js" />
       <root url="file://$PROJECT_DIR$/bower_components/lodash/test/asset/test-ui-compiled.js" />
+      <root url="file://$PROJECT_DIR$/dist/data-compiled.js" />
       <root url="file://$PROJECT_DIR$/bower_components/lodash/test/remove-compiled.js" />
-      <root url="file://$PROJECT_DIR$/bower_components/lodash/dist/lodash.core-compiled.js" />
       <root url="file://$PROJECT_DIR$/bower_components/angular/index-compiled.js" />
+      <root url="file://$PROJECT_DIR$/bower_components/lodash/dist/lodash.core-compiled.js" />
       <root url="file://$PROJECT_DIR$/bower_components/lodash/dist/lodash-compiled.js" />
       <root url="file://$PROJECT_DIR$/bower_components/lodash/vendor/backbone/test/setup/dom-setup-compiled.js" />
       <root url="file://$PROJECT_DIR$/bower_components/angular-animate/index-compiled.js" />
@@ -148,7 +153,6 @@
       <root url="file://$PROJECT_DIR$/bower_components/lodash/vendor/underscore/test/chaining-compiled.js" />
       <root url="file://$PROJECT_DIR$/src/server/routes-compiled.js" />
       <root url="file://$PROJECT_DIR$/bower_components/lodash/vendor/backbone/backbone-compiled.js" />
-      <root url="file://$PROJECT_DIR$/src/server/data-compiled.js" />
       <root url="file://$PROJECT_DIR$/bower_components/lodash/vendor/underscore/test/utility-compiled.js" />
       <root url="file://$PROJECT_DIR$/bower_components/lodash/vendor/backbone/test/collection-compiled.js" />
     </CLASSES>

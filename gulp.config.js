@@ -44,6 +44,7 @@ module.exports = function() {
             '**/*.js'
         ],
         less: client + 'styles/styles.less',
+        jshint: {esversion:6},
         report: report,
         root: root,
         server: server,

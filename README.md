@@ -1,4 +1,7 @@
-# hellotest
+# Angular + FullCalendar Demo
+
+This is a test project for displaying event data in FullCalendar via an Angular app. It is based
+on the HotTowel starter app.
 
 **Forked from HotTowel Angular**
 
@@ -15,9 +18,9 @@ in the [Angular Style Guide](https://github.com/johnpapa/angularjs-styleguide) a
 
 2. Install these NPM packages globally
 
-    ```bash
-    npm install -g bower gulp nodemon
-    ```
+```bash
+npm install -g bower gulp nodemon
+```
 
     >Refer to these [instructions on how to not require sudo](https://github.com/sindresorhus/guides/blob/master/npm-global-without-sudo.md)
 
