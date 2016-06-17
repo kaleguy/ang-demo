@@ -25,8 +25,7 @@
     "tag": "0.2.3",
     "commit": "e1811b3ee195992026bfeaf5f27ea1c1e408b035"
   },
-  "_source": "git://github.com/plong0/angular-collapse.git",
+  "_source": "https://github.com/plong0/angular-collapse.git",
   "_target": "^0.2.3",
-  "_originalSource": "angular-collapse",
-  "_direct": true
+  "_originalSource": "angular-collapse"
 }

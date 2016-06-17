@@ -40,7 +40,7 @@
     "tag": "0.1.8",
     "commit": "0c7bce54c7d71ea121db9b468bb5a65563b1f743"
   },
-  "_source": "git://github.com/wardbell/bardjs.git",
+  "_source": "https://github.com/wardbell/bardjs.git",
   "_target": "^0.1.4",
   "_originalSource": "bardjs"
 }

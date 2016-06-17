@@ -14,7 +14,7 @@
     "tag": "0.9.3",
     "commit": "dc52bbdf315acb51deb8de3fffd62384d31963ee"
   },
-  "_source": "git://github.com/AngularPlus/AngularPlus.git",
+  "_source": "https://github.com/AngularPlus/AngularPlus.git",
   "_target": "^0.9.2",
   "_originalSource": "extras.angular.plus"
 }
