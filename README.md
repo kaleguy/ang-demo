@@ -2,7 +2,7 @@
 
 [Live Demo Site](https://safe-retreat-49267.herokuapp.com/)
 
-This is a test project for displaying event data in FullCalendar via an Angular app. It is based
+This is a test project for displaying event data in FullCalendar via an Angular (1.5) app. It is based
 on the HotTowel starter app.
 
 
