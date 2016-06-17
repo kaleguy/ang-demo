@@ -1,0 +1,32 @@
+{
+  "name": "angular-collapse",
+  "version": "0.2.3",
+  "description": "Customizable ng-collapse directive",
+  "authors": [
+    "plong0 <pat@technaturally.com>"
+  ],
+  "keywords": [
+    "angular",
+    "collapse",
+    "animate"
+  ],
+  "main": [
+    "./angular-collapse.js",
+    "./angular-collapse.css"
+  ],
+  "ignore": [],
+  "dependencies": {
+    "angular": ">= 1.3"
+  },
+  "homepage": "https://github.com/plong0/angular-collapse",
+  "_release": "0.2.3",
+  "_resolution": {
+    "type": "version",
+    "tag": "0.2.3",
+    "commit": "e1811b3ee195992026bfeaf5f27ea1c1e408b035"
+  },
+  "_source": "git://github.com/plong0/angular-collapse.git",
+  "_target": "^0.2.3",
+  "_originalSource": "angular-collapse",
+  "_direct": true
+}

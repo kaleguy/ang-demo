@@ -1,0 +1,51 @@
+{
+  "name": "angular-color-selectbox",
+  "description": "Popup menu of preset color choices - Directive For AngularJS",
+  "version": "1.0.5",
+  "homepage": "https://github.com/kaleguy/angular-color-selectbox",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/kaleguy/angular-color-selectbox.git"
+  },
+  "authors": [
+    "kaleguy <joe.orr@gmail.com>"
+  ],
+  "main": [
+    "dist/angularjs-color-selectbox.js",
+    "dist/angularjs-color-selectbox.css"
+  ],
+  "moduleType": [
+    "globals"
+  ],
+  "keywords": [
+    "Color",
+    "Color Picker",
+    "Color Menu",
+    "Color Chooser",
+    "Directive",
+    "Angular",
+    "AngularJS"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "*",
+    "!dist/",
+    "!dist/*"
+  ],
+  "dependencies": {
+    "angular": "^1.3.0",
+    "font-awesome": "^4.5.0",
+    "jquery": "^2.2.2",
+    "lodash": "^4.8.2"
+  },
+  "_release": "1.0.5",
+  "_resolution": {
+    "type": "version",
+    "tag": "v1.0.5",
+    "commit": "eb08a33fa467c01e9b3d9f4344773fe9cd3d7b84"
+  },
+  "_source": "https://github.com/kaleguy/angular-color-selectbox.git",
+  "_target": "^1.0.5",
+  "_originalSource": "angular-color-selectbox",
+  "_direct": true
+}
