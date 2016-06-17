@@ -53,10 +53,10 @@
             _.each(events, function (e) {
 
                 var account = _.find(data.accounts, function (a) {
-                    return a.id === e.calendar
+                    return a.id === e.calendar;
                 });
                 if (!account) {
-                    console.log("No matching account for:", e);
+                    console.log('No matching account for:', e);
                     return;
                 }
 

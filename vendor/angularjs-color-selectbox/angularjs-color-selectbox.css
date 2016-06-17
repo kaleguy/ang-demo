@@ -1,0 +1,33 @@
+/*!
+ * angularjs-color-selectbox v1.0.4
+ * https://github.com/kaleguy/angular-color-selectbox/
+ *
+ * Copyright 2016 kaleguy
+ *
+ * 2016-04-06 17:47:58
+ *
+ */
+.sr_cp {
+  border: 1px solid #eee;
+  box-shadow: 5px 10px 5px #888888;
+  border-radius: 4px;
+  padding: 5px;
+  font-style: normal;
+  position: absolute;
+  z-index: 222;
+  background-color: #fff;
+  font-family: FontAwesome;
+  word-wrap: break-word;
+  display: none;
+  cursor: pointer;
+  line-height: 1.6;
+}
+.sr_cp I {
+  padding: 4px;
+  font-style: normal;
+  font-size: 12;
+  font-family: FontAwesome;
+}
+* {
+  box-sizing: border-box;
+}
