@@ -4,13 +4,11 @@
   "version": "0.0.0",
   "scripts": {
     "init": "npm install",
-    "install": "bower install",
     "start": "node src/server/app.js",
     "test": "gulp test"
   },
   "dependencies": {
     "body-parser": "^1.8.2",
-    "bower": "^1.7.9",
     "express": "^4.9.3",
     "morgan": "^1.1.1",
     "serve-favicon": "^2.0.1"
