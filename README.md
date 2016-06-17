@@ -1,5 +1,7 @@
 # Angular + FullCalendar Demo
 
+[Live Demo Site](https://safe-retreat-49267.herokuapp.com/)
+
 This is a test project for displaying event data in FullCalendar via an Angular app. It is based
 on the HotTowel starter app.
 
@@ -7,9 +9,13 @@ on the HotTowel starter app.
 **Forked from HotTowel Angular**
 
 To install the original Hot Towel project, see Hottowel on yeoman. The original project contains
-documentation about various aspects of the code. This version just add 
+documentation about various aspects of the code. This version just adds the FullCalendar control
+with a few enhancements.
+
+The added code is ES6, compliled to ES5 with Babel (in the '.compiled' files).
 
 >*Hot Towel is based on the Opinionated Angular style guide for teams by [@john_papa](//twitter.com/john_papa)*
+
 
 
 ## Prerequisites
