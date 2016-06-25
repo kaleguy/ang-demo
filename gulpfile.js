@@ -34,14 +34,21 @@ gulp.task('default', ['help']);
  * @return {Stream}
  */
 gulp.task('vet', function() {
-    log('Analyzing source with JSHint and JSCS');
+    log('Analyzing source with JSHint');
 
     return gulp
         .src(config.alljs)
         .pipe($.if(args.verbose, $.print()))
         .pipe($.jshint())
         .pipe($.jshint.reporter('jshint-stylish', {verbose: true}))
-        .pipe($.jshint.reporter('fail'))
+        .pipe($.jshint.reporter('fail'));
+//        .pipe($.jscs());
+});
+gulp.task('vet_es6', function() {
+    log('Analyzing source with JSCS');
+
+    return gulp
+        .src(config.es6)
         .pipe($.jscs());
 });
 

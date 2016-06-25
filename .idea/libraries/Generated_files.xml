@@ -2,18 +2,11 @@
   <library name="Generated files" type="javaScript">
     <properties>
       <sourceFilesUrls>
-        <item url="file://$PROJECT_DIR$/dist/core.module-compiled.js" />
-        <item url="file://$PROJECT_DIR$/src/server/routes-compiled.js" />
-        <item url="file://$PROJECT_DIR$/dist/calendar.controller-compiled-compiled.js" />
         <item url="file://$PROJECT_DIR$/src/server/eventdata-compiled.js" />
-        <item url="file://$PROJECT_DIR$/dist/jquery.min-compiled.js" />
-        <item url="file://$PROJECT_DIR$/dist/templates-compiled.js" />
-        <item url="file://$PROJECT_DIR$/dist/jquery-compiled.js" />
-        <item url="file://$PROJECT_DIR$/dist/gulp.config-compiled.js" />
+        <item url="file://$PROJECT_DIR$/src/server/routes-compiled.js" />
         <item url="file://$PROJECT_DIR$/src/client/app/core/config-compiled.js" />
-        <item url="file://$PROJECT_DIR$/dist/data-compiled.js" />
+        <item url="file://$PROJECT_DIR$/dist/calendar.controller-compiled.js" />
         <item url="file://$PROJECT_DIR$/src/client/app/calendar/calendar.controller-compiled.js" />
-        <item url="file://$PROJECT_DIR$/dist/dataservice-compiled.js" />
       </sourceFilesUrls>
     </properties>
     <CLASSES>
@@ -93,18 +86,19 @@
       <root url="file://$PROJECT_DIR$/bower_components/lodash/vendor/backbone/backbone-compiled.js" />
       <root url="file://$PROJECT_DIR$/bower_components/lodash/vendor/underscore/test/utility-compiled.js" />
       <root url="file://$PROJECT_DIR$/bower_components/lodash/vendor/backbone/test/collection-compiled.js" />
-      <root url="file://$PROJECT_DIR$/src/server/routes-compiled.js" />
       <root url="file://$PROJECT_DIR$/dist/calendar.controller-compiled-compiled.js" />
-      <root url="file://$PROJECT_DIR$/src/server/eventdata-compiled.js" />
       <root url="file://$PROJECT_DIR$/dist/jquery.min-compiled.js" />
       <root url="file://$PROJECT_DIR$/dist/jquery-compiled.js" />
-      <root url="file://$PROJECT_DIR$/src/client/app/core/config-compiled.js" />
-      <root url="file://$PROJECT_DIR$/src/client/app/calendar/calendar.controller-compiled.js" />
       <root url="file://$PROJECT_DIR$/dist/dataservice-compiled.js" />
       <root url="file://$PROJECT_DIR$/dist/core.module-compiled.js" />
       <root url="file://$PROJECT_DIR$/dist/templates-compiled.js" />
       <root url="file://$PROJECT_DIR$/dist/gulp.config-compiled.js" />
       <root url="file://$PROJECT_DIR$/dist/data-compiled.js" />
+      <root url="file://$PROJECT_DIR$/src/server/eventdata-compiled.js" />
+      <root url="file://$PROJECT_DIR$/src/server/routes-compiled.js" />
+      <root url="file://$PROJECT_DIR$/src/client/app/core/config-compiled.js" />
+      <root url="file://$PROJECT_DIR$/dist/calendar.controller-compiled.js" />
+      <root url="file://$PROJECT_DIR$/src/client/app/calendar/calendar.controller-compiled.js" />
     </CLASSES>
     <SOURCES />
   </library>

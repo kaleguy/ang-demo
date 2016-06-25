@@ -1,0 +1,1 @@
+{"version":3,"sources":["calendar.module.es6"],"names":[],"mappings":";;AAAA,CAAC,YAAY;;AAET,YAAQ,MAAR,CAAe,cAAf,EAA+B,CAC3B,UAD2B,EAE3B,aAF2B,EAG3B,aAH2B,CAA/B;AAMH,CARD","file":"calendar.module.js","sourcesContent":["(function () {\n\n    angular.module('app.calendar', [\n        'app.core',\n        'app.widgets',\n        'ui.calendar'\n      ]);\n\n})();\n"]}

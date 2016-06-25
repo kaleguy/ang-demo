@@ -1,20 +1,18 @@
-'use strict';
-
 /* jshint -W117, -W030 */
 describe('calendar routes', function () {
     describe('state', function () {
         var view = 'app/calendar/calendar.html';
 
-        beforeEach(function () {
+        beforeEach(function() {
             module('app.calendar', bard.fakeToastr);
             bard.inject('$httpBackend', '$location', '$rootScope', '$state', '$templateCache');
         });
 
-        beforeEach(function () {
+        beforeEach(function() {
             $templateCache.put(view, '');
         });
 
-        it('should map state calendar to url /calendar ', function () {
+        it('should map state calendar to url /calendar ', function() {
             expect($state.href('calendar', {})).to.equal('/calendar');
         });
 
@@ -29,5 +27,3 @@ describe('calendar routes', function () {
         });
     });
 });
-
-//# sourceMappingURL=calendar.route.spec.js.map

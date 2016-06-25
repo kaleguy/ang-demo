@@ -21,8 +21,10 @@ module.exports = function() {
          */
         // all javascript that we want to vet
         alljs: [
-            './src/**/*.js',
-            './*.js'
+            './src/**/*.js'
+        ],
+        es6: [
+            './src/**/*.es6'
         ],
         build: './build/',
         client: client,
@@ -35,7 +37,7 @@ module.exports = function() {
         // app js, with no specs
         js: [
             clientApp + '**/*.module.js',
-            clientApp + '**/*.js',
+            clientApp + '**/*compiled.js',
             '!' + clientApp + '**/*.spec.js'
         ],
         jsOrder: [

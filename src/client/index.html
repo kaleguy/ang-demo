@@ -119,13 +119,13 @@
                     <%= start.local().format('ddd MM/DD/YYYY h:mm A') %>
                 </div>
             </div>
-            <div class="description <%= ellipsis_class %>"><div><%= short_description %></div></div>
+            <div class="description <%= ellipsisClass %>"><div><%= shortDescription %></div></div>
             <% if (participants.length){ %>
             <div class="participants">
                 <span class="title">Who: </span><%= participants.join(', ') %>
             </div>
             <% } %>
-            <% if (! read_only && owned && editable) { %>
+            <% if (! readOnly && owned && editable) { %>
             <div class="edit">
                 <button class="btn btn-default btn-xs" ng-click="editEvent(this,'<%= id %>')">
                     <table>
@@ -145,22 +145,22 @@
                 </button>
             </div>
             <% } else { %>
-            <% if ((! canceled) && rsvp_status_descr && editable) { %>
+            <% if ((! canceled) && rsvpStatusDescr && editable) { %>
             <div class="approve" style="height:40px;">
                 <button class="btn btn-default btn-xs" tooltip="Accept" ng-click="yes(this,'<%= id %>')">
-                    <i class="{{yes_class}}"></i>
+                    <i class="{{yesClass}}"></i>
                 </button>
                 <button class="btn btn-default btn-xs"  tooltip="Maybe" ng-click="maybe(this,'<%= id %>')">
-                    <i class="{{maybe_class}}"></i>
+                    <i class="{{maybeClass}}"></i>
                 </button>
                 <button class="btn btn-default btn-xs"  tooltip="Decline" ng-click="no(this,'<%= id %>')">
-                    <i class="{{no_class}}"></i>
+                    <i class="{{noClass}}"></i>
                 </button>
             </div>
             <% } %>
             <% } %>
-            <% if ((! canceled) && rsvp_status_descr && editable) { %>
-            <div>{{event_data.rsvp_status_descr}}</div>
+            <% if ((! canceled) && rsvpStatusDescr && editable) { %>
+            <div>{{event_data.rsvpStatusDescr}}</div>
             <% } %>
         </div>
     </script>

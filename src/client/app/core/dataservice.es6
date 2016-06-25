@@ -1,12 +1,12 @@
-'use strict';
-
 /*global lodash */
 /*global _ */
 /*global removeTags */
 
 (function () {
 
-    angular.module('app.core').factory('dataservice', dataservice);
+    angular
+        .module('app.core')
+        .factory('dataservice', dataservice);
 
     dataservice.$inject = ['$http', '$q', 'exception', 'logger'];
 
@@ -21,12 +21,12 @@
 
         return service;
 
-        function getMessageCount() {
-            return $q.when(72);
-        }
+        function getMessageCount() { return $q.when(72); }
 
         function getPeople() {
-            return $http.get('/api/people').then(success).catch(fail);
+            return $http.get('/api/people')
+                .then(success)
+                .catch(fail);
 
             function success(response) {
                 return response.data;
@@ -37,7 +37,9 @@
             }
         }
         function getEvents() {
-            return $http.get('/api/events').then(success).catch(fail);
+            return $http.get('/api/events')
+                .then(success)
+                .catch(fail);
 
             function success(response) {
                 return normalizeEvents(response.data);
@@ -67,24 +69,25 @@
                 if (shortDescription.length > 200) {
                     e.ellipsisClass = 'ellipsis';
                 }
-                _.defaults(e, {
-                    title: '',
+                _.defaults(e,{
+                    title:'',
                     readOnly: true,
                     description: '',
                     shortDescription: shortDescription,
                     canceled: false,
                     rsvpStatusDescr: false,
                     location: '',
-                    participants: [],
-                    owner: ''
+                    participants:[],
+                    owner:''
                 });
 
                 e.backgroundColor = account.backgroundColor;
                 e.className = [];
+
             });
             return data;
         }
-    }
-})();
 
-//# sourceMappingURL=dataservice.js.map
+    }
+
+})();

@@ -1,3 +1,5 @@
+var _ = require('lodash');
+
 /**
  * Created by josephorr on 3/20/16.
  */
@@ -12,7 +14,7 @@ Array.prototype.remove = function(from, to) {
  * @returns {*}
  */
 function removeTags(string){
-    if (! string){return ''}
+    if (! string){return '';}
     return string.replace(/<[^>]*>/g, ' ')
         .replace(/\s{2,}/g, ' ')
         .trim();
@@ -23,7 +25,7 @@ function removeTags(string){
  * @param value
  */
 function setAll(obj, value){
-    _.each(obj,function(v,k){obj[k] = value})
+    _.each(obj,function(v,k){obj[k] = value;});
 }
 
 /**

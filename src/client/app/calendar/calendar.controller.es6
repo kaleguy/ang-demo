@@ -1,13 +1,19 @@
+/*global $ */
+/*global _ */
+/*global setAll */
+
 (function () {
-    'use strict';
 
     angular.module('app.calendar').controller('CalendarController', CalendarController);
 
-    CalendarController.$inject = ['$scope', '$timeout', '$compile', '$document', 'logger',
-        'uiCalendarConfig', 'dataservice'];
+    CalendarController.$inject = [
+        '$scope', '$timeout', '$compile', '$document',
+        'logger', 'uiCalendarConfig', 'dataservice'];
 
     /* @ngInject */
-    function CalendarController($scope, $timeout, $compile, $document, logger, uiCalendarConfig, dataservice) {
+    function CalendarController(
+        $scope, $timeout, $compile, $document, logger,
+        uiCalendarConfig, dataservice) {
 
         var vm = this;
         vm.title = 'Calendar';
@@ -27,11 +33,11 @@
             }
         });
         $('body').on('click', function (e) {
-            let a = $(e.target).parents('A');
-            let pop_id = a.attr("aria-describedby");
-            if (pop_id) {
+            var a = $(e.target).parents('A');
+            var popId = a.attr('aria-describedby');
+            if (popId) {
                 $timeout(function () {
-                    let pop = $(".popover[id!=" + pop_id + "]");
+                    var pop = $('.popover[id!=' + popId + ']');
                     if (pop) {
                         pop.popover('hide');
                     }
@@ -50,7 +56,7 @@
         /**
          * ========== FullCalendar Setup ==============
          */
-        let buttonIcons = {
+        var buttonIcons = {
             refresh: 'left-single-arrow'
         };
         $scope.uiConfig = {
@@ -59,52 +65,52 @@
                 height: 'auto',
                 editable: editable,
                 droppable: true,
-                timezone: "local",
+                timezone: 'local',
                 buttonIcons: buttonIcons,
                 header: {
                     left: 'prev,next today',
                     center: 'title',
                     right: 'month,agendaWeek,agendaDay'
                 },
-                dayClick,
-                eventClick,
-                viewRender
+                dayClick: dayClick,
+                eventClick: eventClick,
+                viewRender: viewRender
             }
         };
         $scope.eventSources = events;
 
         /**
          * eventClick: show bootstrap popover with event info
-         * @param calEvent
-         * @param jsEvent
+         * @param {object} calEvent
+         * @param {object} jsEvent
          */
         function eventClick(calEvent, jsEvent) {
 
             // let eventClicked = true;
-            let el = $(jsEvent.currentTarget);
-            let item = calEvent;
+            var el = $(jsEvent.currentTarget);
+            var item = calEvent;
 
             // use an underscore template for the first pass on the content
             // because apparently not possible to get the height right when
             // using ng $compile
-            let template = _.template($('#cal_pop').html());
+            var template = _.template($('#cal_pop').html());
 
             function _showPopover(el) {
 
                 el.popover('show');
                 el.attr('pop', true);
-                let popid = '#' + el.attr("aria-describedby");
+                var popid = '#' + el.attr('aria-describedby');
                 el.attr('tabindex', 0);
                 el.attr('role', 'button');
 
                 // Once content is drawn, we can $compile it to get the ng commands to work
-                let contentEl = $(popid + ' .popover-content');
-                let contentElChild = $(popid + ' .tool-content');
-                let ng_template = contentElChild.html();
-                let ng_el = angular.element(ng_template);
-                let compiled = $compile(ng_el);
+                var contentEl = $(popid + ' .popover-content');
+                var contentElChild = $(popid + ' .tool-content');
+                var ngTemplate = contentElChild.html();
+                var ngEl = angular.element(ngTemplate);
+                var compiled = $compile(ngEl);
                 contentElChild.remove();
-                contentEl.append(ng_el);
+                contentEl.append(ngEl);
                 compiled($scope);
             }
 
@@ -114,7 +120,9 @@
                 container: 'body',
                 html: true,
                 trigger: 'focus',
-                content: () => template(item)
+                content: function content() {
+                    return template(item);
+                }
             });
 
             _showPopover(el);
@@ -123,7 +131,7 @@
         /* Navigate to the Agenda view of a particular day on clicking the day cell of the Month view */
         function dayClick(date) {
             // view, calendar
-            let c = uiCalendarConfig.calendars.mainCalendar;
+            var c = uiCalendarConfig.calendars.mainCalendar;
             c.fullCalendar('changeView', 'agendaDay');
             c.fullCalendar('gotoDate', date);
             $('.popover').popover('hide');
@@ -137,22 +145,21 @@
         vm.calendarFilters = {};
         vm.ownerFilters = {};
 
-        const unfilterAll = function () {
+        var unfilterAll = function unfilterAll() {
             setAll(vm.calendarFilters, false);
             setAll(vm.ownerFilters, false);
             //_.each(events, (e) => e.className = _.without(e.className, 'hide');
         };
 
-
         /**
          * toggleHide: hide/show events by type (target)
-         * @param target: 'calendar' or 'owner'
-         * @param key: id of target
-         * @param hide {boolean}
+         * @param {string} target - 'calendar' or 'owner'
+         * @param {string} key - id of target
+         * @param {boolean} hide
          */
-        function toggleHide(target, key, hide) {
-            let cp_events = angular.copy(vm.events);
-            cp_events.forEach(function (e) {
+        var toggleHide = function toggleHide(target, key, hide) {
+            var cpEvents = angular.copy(vm.events);
+            cpEvents.forEach(function (e) {
                 if (e[target] === key) {
                     if (hide) {
                         e.className.push('hide');
@@ -162,13 +169,13 @@
                 }
             });
             events.length = 0;
-            events.push(cp_events);
+            events.push(cpEvents);
         };
 
         /**
          * filterCalendars - filter calendars by account. This function also handles
          * the click on the color square, and passes that click to the color picker.
-         * @param key
+         * @param {string} key
          */
         vm.filterCalendars = function (key) {
             vm.calendarFilters[key] = !vm.calendarFilters[key];
@@ -182,17 +189,18 @@
 
         vm.setEventsColor = function (color, account) {
 
-            let cp_events = angular.copy(vm.events);
-            let id = account.id;
-            cp_events.forEach(function (e) {
+            var cpEvents = angular.copy(vm.events);
+            var id = account.id;
+            cpEvents.forEach(function (e) {
                 if (e.calendar === id) {
                     e.backgroundColor = color;
                 }
             });
             events.length = 0;
-            events.push(cp_events);
+            events.push(cpEvents);
             $scope.$apply(); // required bc angular fullcalendar does not respond to change in event backgroundColor
         };
+
         activate();
         function activate() {
             logger.info('Activated Calendar View');
@@ -200,4 +208,4 @@
     }
 })();
 
-//# sourceMappingURL=calendar.controller-compiled.js.map
+//# sourceMappingURL=calendar.controller.js.map
