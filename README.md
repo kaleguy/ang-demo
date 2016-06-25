@@ -13,7 +13,7 @@ documentation about various aspects of the code. This version just adds the Full
 with a few enhancements.
 
 The files added for calendar functionality are all ES6 files, with an .es6 extension. 
-The corresponding .js files are complied files.
+The corresponding .js files are compiled files (using babel-cli).
 
 
 ## Prerequisites
@@ -35,6 +35,10 @@ npm install -g bower gulp nodemon
  - Install npm modules with `npm install`
  - Install bower modules with `bower install`
  - Run the project with `npm start`
+
+### Linting
+ - Run jslint on the compiled .js files with `gulp vet`
+ - Run JSCS on the .es6 files with `gulp vet_es6`
 
 
 ## License
