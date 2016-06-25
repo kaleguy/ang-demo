@@ -12,12 +12,8 @@ To install the original Hot Towel project, see Hottowel on yeoman. The original 
 documentation about various aspects of the code. This version just adds the FullCalendar control
 with a few enhancements.
 
-The files added for the calendar are under src - client - app - calendar.
-
-The added code is ES6, compliled to ES5 with Babel (in the '.compiled' files).
-
->*Hot Towel is based on the Opinionated Angular style guide for teams by [@john_papa](//twitter.com/john_papa)*
-
+The files added for calendar functionality are all ES6 files, with an .es6 extension. 
+The corresponding .js files are complied files.
 
 
 ## Prerequisites
